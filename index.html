@@ -9,21 +9,27 @@
 
 <header>
   <img src="SEMFAZ.png" alt="Logo SEMFAZ" class="header-image">
+  <h1>Secretaria da Fazenda</h1>
 </header>
 
 <div class="search-box">
+  <p class="descricao">Caso você deseje saber se tem algum erro com sua dívida, digite um dos campos abaixo:</p>
   <form id="formPesquisa">
-
     <label for="pesquisa_cnpj_cpf">Digite o CPF ou CNPJ:</label>
     <input type="text" id="pesquisa_cnpj_cpf" name="pesquisa_cnpj_cpf" placeholder="CPF ou CNPJ">
+    <input type="submit" value="Pesquisar CPF/CNPJ" id="btnPesquisaCNPJCPF">
 
     <label for="pesquisa_inscricao">Digite a Inscrição Imobiliária:</label>
     <input type="text" id="pesquisa_inscricao" name="pesquisa_inscricao" placeholder="Inscrição Imobiliária">
+    <input type="submit" value="Pesquisar Inscrição" id="btnPesquisaInscricao">
 
-    <input type="submit" value="Pesquisar">
   </form>
   <div id="resultado"></div>
 </div>
+
+<footer>
+  <p>&copy; 2025 SEMFAZ. Todos os direitos reservados.</p>
+</footer>
 
 <script src="java.js"></script>
 </body>

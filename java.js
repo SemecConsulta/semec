@@ -9,32 +9,68 @@ function buscarCNPJCPF(pesquisa) {
 }
 
 function buscarInscricaoMunicipal(pesquisa) {
-    const pesquisaNumerica = parseInt(pesquisa, 10); // Converte a pesquisa para número
-    return dados.inscricao_municipal.includes(pesquisaNumerica);
+    return dados.inscricao_municipal.includes(pesquisa);
 }
 
-function realizarPesquisa() {
+// Função para pesquisa de CPF/CNPJ
+function realizarPesquisaCNPJCPF() {
     const pesquisaCNPJCPF = document.getElementById('pesquisa_cnpj_cpf').value;
-    const pesquisaInscricaoMunicipal = document.getElementById('pesquisa_inscricao').value;
+    let resultado = document.getElementById('resultado');
+    resultado.classList.remove('erro', 'sucesso', 'nao-encontrado'); // Remove as classes anteriores
 
     if (pesquisaCNPJCPF) {
         if (buscarCNPJCPF(pesquisaCNPJCPF)) {
-            document.getElementById('resultado').innerText = "Valor a reacer, se direcione a SEMFAZ";
+            resultado.classList.add('sucesso');
+            resultado.innerText = "Valor com Erros, se direcione a SEMFAZ";
         } else {
-            document.getElementById('resultado').innerText = "Dado inválido ou sem Reação";
-        }
-    } else if (pesquisaInscricaoMunicipal) {
-        if (buscarInscricaoMunicipal(pesquisaInscricaoMunicipal)) {
-            document.getElementById('resultado').innerText = "Valor a reacer, se direcione a SEMFAZ";
-        } else {
-            document.getElementById('resultado').innerText = "Dado inválido ou sem Reação";
+            resultado.classList.add('erro');
+            resultado.innerText = "Valor Não inexistente ou sem Erros";
         }
     } else {
-        document.getElementById('resultado').innerText = "Por favor, insira um CPF, CNPJ ou Inscrição Imobiliária.";
+        resultado.classList.add('nao-encontrado');
+        resultado.innerText = "Por favor, insira um CPF ou CNPJ.";
     }
+
+    // Faz a mensagem desaparecer após 5 segundos
+    setTimeout(function() {
+        resultado.innerText = ''; // Limpa o texto
+        resultado.classList.remove('erro', 'sucesso', 'nao-encontrado'); // Remove as classes de estilo
+    }, 3000); // 3000 milissegundos = 3 segundos
 }
 
-document.getElementById('formPesquisa').addEventListener('submit', function(e) {
+// Função para pesquisa de Inscrição Imobiliária
+function realizarPesquisaInscricao() {
+    const pesquisaInscricaoMunicipal = document.getElementById('pesquisa_inscricao').value;
+    let resultado = document.getElementById('resultado');
+    resultado.classList.remove('erro', 'sucesso', 'nao-encontrado'); // Remove as classes anteriores
+
+    if (pesquisaInscricaoMunicipal) {
+        if (buscarInscricaoMunicipal(pesquisaInscricaoMunicipal)) {
+            resultado.classList.add('sucesso');
+            resultado.innerText = "Valor com Erros, se direcione a SEMFAZ";
+        } else {
+            resultado.classList.add('erro');
+            resultado.innerText = "Valor Não inexistente ou sem Erros";
+        }
+    } else {
+        resultado.classList.add('nao-encontrado');
+        resultado.innerText = "Por favor, insira uma Inscrição Imobiliária.";
+    }
+
+    // Faz a mensagem desaparecer após 5 segundos
+    setTimeout(function() {
+        resultado.innerText = ''; // Limpa o texto
+        resultado.classList.remove('erro', 'sucesso', 'nao-encontrado'); // Remove as classes de estilo
+    }, 3000); // 3000 milissegundos = 3 segundos
+}
+
+// Adicionando os eventos para os botões
+document.getElementById('btnPesquisaCNPJCPF').addEventListener('click', function(e) {
     e.preventDefault(); // Impede o envio do formulário
-    realizarPesquisa();
+    realizarPesquisaCNPJCPF();
+});
+
+document.getElementById('btnPesquisaInscricao').addEventListener('click', function(e) {
+    e.preventDefault(); // Impede o envio do formulário
+    realizarPesquisaInscricao();
 });
