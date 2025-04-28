@@ -9,7 +9,8 @@ function buscarCNPJCPF(pesquisa) {
 }
 
 function buscarInscricaoMunicipal(pesquisa) {
-    return dados.inscricao_municipal.includes(pesquisa);
+    const pesquisaNumerica = parseInt(pesquisa, 10); // Converte a pesquisa para número
+    return dados.inscricao_municipal.includes(pesquisaNumerica);
 }
 
 // Função para pesquisa de CPF/CNPJ
