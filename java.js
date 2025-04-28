@@ -24,7 +24,6 @@ function aplicarMascara() {
 
 document.getElementById('pesquisa_cnpj_cpf').addEventListener('input', aplicarMascara);
 
-
 function buscarCNPJCPF(pesquisa) {
     return dados.numero_documento_juridico.includes(pesquisa);
 }
@@ -53,7 +52,7 @@ function realizarPesquisaCNPJCPF() {
     }
 
     setTimeout(function() {
-        resultado.innerText = ''; // Limpa o texto
+        resultado.innerText = '';
         resultado.classList.remove('erro', 'sucesso', 'nao-encontrado');
     }, 10000);
 }
