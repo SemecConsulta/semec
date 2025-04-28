@@ -35,15 +35,15 @@ function realizarPesquisaCNPJCPF() {
     // Faz a mensagem desaparecer após 5 segundos
     setTimeout(function() {
         resultado.innerText = ''; // Limpa o texto
-        resultado.classList.remove('erro', 'sucesso', 'nao-encontrado'); // Remove as classes de estilo
-    }, 3000); // 3000 milissegundos = 3 segundos
+        resultado.classList.remove('erro', 'sucesso', 'nao-encontrado');
+    }, 10000);
 }
 
 // Função para pesquisa de Inscrição Imobiliária
 function realizarPesquisaInscricao() {
     const pesquisaInscricaoMunicipal = document.getElementById('pesquisa_inscricao').value;
     let resultado = document.getElementById('resultado');
-    resultado.classList.remove('erro', 'sucesso', 'nao-encontrado'); // Remove as classes anteriores
+    resultado.classList.remove('erro', 'sucesso', 'nao-encontrado');
 
     if (pesquisaInscricaoMunicipal) {
         if (buscarInscricaoMunicipal(pesquisaInscricaoMunicipal)) {
@@ -60,18 +60,18 @@ function realizarPesquisaInscricao() {
 
     // Faz a mensagem desaparecer após 5 segundos
     setTimeout(function() {
-        resultado.innerText = ''; // Limpa o texto
+        resultado.innerText = '';
         resultado.classList.remove('erro', 'sucesso', 'nao-encontrado'); // Remove as classes de estilo
-    }, 3000); // 3000 milissegundos = 3 segundos
+    }, 10000);
 }
 
 // Adicionando os eventos para os botões
 document.getElementById('btnPesquisaCNPJCPF').addEventListener('click', function(e) {
-    e.preventDefault(); // Impede o envio do formulário
+    e.preventDefault();
     realizarPesquisaCNPJCPF();
 });
 
 document.getElementById('btnPesquisaInscricao').addEventListener('click', function(e) {
-    e.preventDefault(); // Impede o envio do formulário
+    e.preventDefault();
     realizarPesquisaInscricao();
 });
