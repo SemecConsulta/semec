@@ -97,10 +97,14 @@ footer p {
 }
 
 .sucesso {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
+    background-color: #e6ffed;
+    color: #056e1a;
+    border: 1px solid #b2f2bb;
+    box-shadow: 0 2px 6px rgba(0, 128, 0, 0.15);
+    font-size: 16px;
+    line-height: 1.5;
 }
+
 
 .erro {
     background-color: #f8d7da;

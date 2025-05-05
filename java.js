@@ -42,7 +42,8 @@ function realizarPesquisaCNPJCPF() {
     if (pesquisaCNPJCPF) {
         if (buscarCNPJCPF(pesquisaCNPJCPF)) {
             resultado.classList.add('sucesso');
-            resultado.innerText = "Este CPF/CNPJ possui valor a ser restituído em decorrência de recolhimento indevido da tarifa de Expediente no valor de R$. 10,37. Para restituir clique em formulário requerimento padronizado, preencha-o e siga as orientações nele previstas.";
+            resultado.innerHTML = `Este CPF/CNPJ possui valor a ser restituído em decorrência de recolhimento indevido da tarifa de Expediente no valor de R$. 10,37.<br>
+            Para restituir, <a href="https://form-restituir.vercel.app/" target="_blank" style="color:#155724; font-weight:bold; text-decoration:underline;">clique aqui para acessar o formulário</a> e siga as orientações nele previstas.`;
         } else {
             resultado.classList.add('erro');
             resultado.innerText = "Sem valor a ser restituído - não houve pagamento da tarifa de expediente indevida.";
@@ -55,7 +56,7 @@ function realizarPesquisaCNPJCPF() {
     setTimeout(function() {
         resultado.innerText = '';
         resultado.classList.remove('erro', 'sucesso', 'nao-encontrado');
-    }, 10000);
+    }, 20000);
 }
 
 function aplicarLimiteInscricao() {
@@ -71,7 +72,8 @@ function realizarPesquisaInscricao() {
     if (pesquisaInscricaoMunicipal) {
         if (buscarInscricaoMunicipal(pesquisaInscricaoMunicipal)) {
             resultado.classList.add('sucesso');
-            resultado.innerText = "Esta Inscrição possui valor a ser restituído em decorrência de recolhimento indevido da tarifa de Expediente no valor de R$. 10,37. Para restituir clique em formulário requerimento padronizado, preencha-o e siga as orientações nele previstas.";
+            resultado.innerHTML = `Esta Inscrição possui valor a ser restituído em decorrência de recolhimento indevido da tarifa de Expediente no valor de R$. 10,37.<br>
+            Para restituir, <a href="https://form-restituir.vercel.app/" target="_blank" style="color:#155724; font-weight:bold; text-decoration:underline;">clique aqui para acessar o formulário</a> e siga as orientações nele previstas.`;
         } else {
             resultado.classList.add('erro');
             resultado.innerText = "Sem valor a ser restituído - não houve pagamento da tarifa de expediente indevida.";
@@ -84,7 +86,7 @@ function realizarPesquisaInscricao() {
     setTimeout(function() {
         resultado.innerText = '';
         resultado.classList.remove('erro', 'sucesso', 'nao-encontrado');
-    }, 10000);
+    }, 20000);
 }
 
 document.getElementById('btnPesquisaCNPJCPF').addEventListener('click', function(e) {
