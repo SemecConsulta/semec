@@ -7,7 +7,6 @@ function buscarInscricaoMunicipal(pesquisa) {
     return dados.inscricao_municipal.includes(pesquisaNumerica);
 }
 
-
 function aplicarLimiteInscricao() {
     let campo = document.getElementById('pesquisa_inscricao');
     campo.value = campo.value.replace(/\D/g, '').slice(0, 15); // Só números e no máximo 15 dígitos
@@ -44,4 +43,3 @@ document.getElementById('btnPesquisaInscricao').addEventListener('click', functi
 });
 
 document.getElementById('pesquisa_inscricao').addEventListener('input', aplicarLimiteInscricao);
-
