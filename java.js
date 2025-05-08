@@ -4,7 +4,7 @@ const dados = {
 function aplicarLimiteInscricao() {
     let campo = document.getElementById('pesquisa_inscricao');
     campo.value = campo.value.replace(/\D/g, '').slice(0, 15); 
-    
+}
 
 function buscarInscricaoMunicipal(pesquisa) {
     const pesquisaNumerica = parseInt(pesquisa, 10);
